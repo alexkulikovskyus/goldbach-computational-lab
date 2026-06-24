@@ -1,0 +1,59 @@
+cff-version: 1.2.0
+message: "If you use this verifier or computational note, please cite this repository and the prior Goldbach computations credited in the article."
+title: "Computational Notes on Minimal Goldbach Witnesses, Q-free Wall-Spectrum Triage, and Q-line Interval Coverage"
+authors:
+  - family-names: "Kulikovsky"
+    given-names: "Alex"
+date-released: "2026-06-22"
+repository-code: "https://github.com/alexkulikovskyus/goldbach-computational-lab"
+license: "MIT"
+references:
+  - type: article
+    title: "On checking the Goldbach conjecture"
+    authors:
+      - family-names: "Shen"
+        given-names: "Mok-Kong"
+    journal: "BIT Numerical Mathematics"
+    volume: 4
+    year: 1964
+    start: 243
+    end: 245
+  - type: article
+    title: "New experimental results concerning the Goldbach conjecture"
+    authors:
+      - family-names: "Deshouillers"
+        given-names: "Jean-Marc"
+      - family-names: "te Riele"
+        given-names: "Herman J. J."
+      - family-names: "Saouter"
+        given-names: "Yannick"
+    year: 1998
+    start: 204
+    end: 215
+  - type: article
+    title: "Verifying the Goldbach conjecture up to 4 x 10^14"
+    authors:
+      - family-names: "Richstein"
+        given-names: "Joerg"
+    journal: "Mathematics of Computation"
+    volume: 70
+    issue: 236
+    year: 2001
+    start: 1745
+    end: 1749
+  - type: article
+    title: "Empirical verification of the even Goldbach conjecture and computation of prime gaps up to 4 x 10^18"
+    authors:
+      - family-names: "Oliveira e Silva"
+        given-names: "Tomas"
+      - family-names: "Herzog"
+        given-names: "Siegfried"
+      - family-names: "Pardi"
+        given-names: "Silvio"
+    journal: "Mathematics of Computation"
+    volume: 83
+    issue: 288
+    year: 2014
+    start: 2033
+    end: 2060
+    url: "https://sweet.ua.pt/tos/goldbach.html"

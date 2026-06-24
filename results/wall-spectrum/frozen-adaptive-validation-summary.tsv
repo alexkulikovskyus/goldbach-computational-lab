@@ -1,0 +1,89 @@
+scope	policy	params	hitGroups	meanCoveredRows	coveredFraction	note
+top10-r2000	denseNMS	suppress=20 topK=10 hitR=20	8/10	206.5	0.103198	uniform strict baseline
+top10-r2000	denseNMS	suppress=20 topK=10 hitR=100	8/10	787.5	0.393553	uniform wide baseline
+top10-r2000	frozen5LayerAdaptive	layers=5 layerSuppress=20 layerTopK=3 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	10/10	367.2	0.183508	baseR20 expand first 4 centers to R60
+top10-r2000	denseP8000Adaptive	singleLayer=p8000w8000 finalSuppress=20 finalTopK=10 baseR=20 expandTop=4 expandR=60	8/10	345.9	0.172864	same adaptive reveal on dense baseline centers
+r11-r30-r2000	denseNMS	suppress=20 topK=10 hitR=20	19/20	205	0.102449	uniform strict baseline
+r11-r30-r2000	denseNMS	suppress=20 topK=10 hitR=100	19/20	815.45	0.407521	uniform wide baseline
+r11-r30-r2000	frozen5LayerAdaptive	layers=5 layerSuppress=20 layerTopK=3 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	20/20	366.85	0.183333	baseR20 expand first 4 centers to R60
+r11-r30-r2000	denseP8000Adaptive	singleLayer=p8000w8000 finalSuppress=20 finalTopK=10 baseR=20 expandTop=4 expandR=60	19/20	336.5	0.168166	same adaptive reveal on dense baseline centers
+r31-r50-r2000	denseNMS	suppress=20 topK=10 hitR=20	14/20	205.2	0.102549	uniform strict baseline
+r31-r50-r2000	denseNMS	suppress=20 topK=10 hitR=100	19/20	769.85	0.384733	uniform wide baseline
+r31-r50-r2000	frozen5LayerAdaptive	layers=5 layerSuppress=20 layerTopK=3 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	20/20	368.4	0.184108	baseR20 expand first 4 centers to R60
+r31-r50-r2000	denseP8000Adaptive	singleLayer=p8000w8000 finalSuppress=20 finalTopK=10 baseR=20 expandTop=4 expandR=60	15/20	342.1	0.170965	same adaptive reveal on dense baseline centers
+r51-r100-r2000	denseNMS	suppress=20 topK=10 hitR=20	42/50	206.74	0.103318	uniform strict baseline
+r51-r100-r2000	denseNMS	suppress=20 topK=10 hitR=100	46/50	798.84	0.39922	uniform wide baseline
+r51-r100-r2000	frozen5LayerAdaptive	layers=5 layerSuppress=20 layerTopK=3 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	47/50	367.6	0.183708	baseR20 expand first 4 centers to R60
+r51-r100-r2000	denseP8000Adaptive	singleLayer=p8000w8000 finalSuppress=20 finalTopK=10 baseR=20 expandTop=4 expandR=60	43/50	349.16	0.174493	same adaptive reveal on dense baseline centers
+r101-r150-r2000	denseNMS	suppress=20 topK=10 hitR=20	40/50	206.5	0.103198	uniform strict baseline
+r101-r150-r2000	denseNMS	suppress=20 topK=10 hitR=100	43/50	806.26	0.402929	uniform wide baseline
+r101-r150-r2000	frozen5LayerAdaptiveK3	layers=5 layerSuppress=20 layerTopK=3 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	47/50	368.26	0.184038	previous frozen adaptive policy
+r101-r150-r2000	frozen5LayerAdaptiveK5	layers=5 layerSuppress=20 layerTopK=5 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	40/50	368.54	0.184178	fresh test of diagnostic variant; worsened
+r101-r150-r2000	denseP8000Adaptive	singleLayer=p8000w8000 finalSuppress=20 finalTopK=10 baseR=20 expandTop=4 expandR=60	41/50	342.96	0.171394	same adaptive reveal on dense baseline centers
+r151-r200-r2000	denseNMS	suppress=20 topK=10 hitR=20	39/50	207.06	0.103478	uniform strict baseline
+r151-r200-r2000	denseNMS	suppress=20 topK=10 hitR=100	44/50	805.98	0.402789	uniform wide baseline
+r151-r200-r2000	frozen5LayerAdaptiveK3	layers=5 layerSuppress=20 layerTopK=3 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	49/50	368.84	0.184328	previous frozen adaptive policy
+r151-r200-r2000	frozen5LayerAdaptiveK5	layers=5 layerSuppress=20 layerTopK=5 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	44/50	368.5	0.184158	known negative K5 check on fresh holdout
+r151-r200-r2000	denseP8000Adaptive	singleLayer=p8000w8000 finalSuppress=20 finalTopK=10 baseR=20 expandTop=4 expandR=60	40/50	347.38	0.173603	same adaptive reveal on dense baseline centers
+r151-r200-r2000	frozen5LayerMassR100	layers=5 layerSuppress=20 layerTopK=3 voteR=20 expandPriority=massR100 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	49/50	365.56	0.182689	shape-priority expansion, same hit count, slightly lower cost
+r151-r200-r2000	frozen5LayerShoulderR100	layers=5 layerSuppress=20 layerTopK=3 voteR=20 expandPriority=shoulderR100 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	49/50	363.52	0.181669	shape-priority expansion, same hit count, slightly lower cost
+r151-r200-r2000	frozen5LayerMassR200	layers=5 layerSuppress=20 layerTopK=3 voteR=20 expandPriority=massR200 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	48/50	362.84	0.181329	shape-priority expansion worsened hit count
+r151-r200-r2000	frozen5LayerShoulderR200	layers=5 layerSuppress=20 layerTopK=3 voteR=20 expandPriority=shoulderR200 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	47/50	364.12	0.181969	shape-priority expansion worsened hit count
+r201-r250-r2000	denseNMS	suppress=20 topK=10 hitR=20	28/50	206.56	0.103228	uniform strict baseline
+r201-r250-r2000	denseNMS	suppress=20 topK=10 hitR=100	33/50	801.1	0.40035	uniform wide baseline
+r201-r250-r2000	frozen5LayerAdaptiveK3	layers=5 layerSuppress=20 layerTopK=3 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	44/50	367.84	0.183828	previous frozen adaptive policy
+r201-r250-r2000	frozen5LayerAdaptiveK5	layers=5 layerSuppress=20 layerTopK=5 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	41/50	367.84	0.183828	known negative K5 check
+r201-r250-r2000	denseP8000Adaptive	singleLayer=p8000w8000 finalSuppress=20 finalTopK=10 baseR=20 expandTop=4 expandR=60	30/50	345.74	0.172784	same adaptive reveal on dense baseline centers
+r201-r250-r2000	frozen5LayerMassR100	layers=5 layerSuppress=20 layerTopK=3 voteR=20 expandPriority=massR100 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	43/50	362.66	0.181239	shape-priority worsened hit count
+r201-r250-r2000	gapDenseReserve1	layers=5 layerSuppress=20 layerTopK=3 voteR=20 fallbackScore=p8000w8000 primarySuppress=100 primaryTopK=10 baseR=20 expandTop=4 expandR=60 fallbackSuppress=100 fallbackTopK=1 fallbackR=100	44/50	456.42	0.228096	predeclared second-stage reserve; no gain over K3
+r201-r250-r2000	gapDenseReserve2	layers=5 layerSuppress=20 layerTopK=3 voteR=20 fallbackScore=p8000w8000 primarySuppress=100 primaryTopK=10 baseR=20 expandTop=4 expandR=60 fallbackSuppress=100 fallbackTopK=2 fallbackR=100	46/50	542.44	0.271084	reserve with two anchors; improves over K3 but worse than broad K3 top5/R100
+r201-r250-r2000	frozen5LayerAdaptiveK3Wide	layers=5 layerSuppress=20 layerTopK=3 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=5 expandR=100	48/50	573.04	0.286377	expensive wide reveal comparison
+r251-r300-r2000	denseNMS	suppress=20 topK=10 hitR=20	34/50	207.74	0.103818	uniform strict baseline
+r251-r300-r2000	denseNMS	suppress=20 topK=10 hitR=100	35/50	823.12	0.411354	uniform wide baseline
+r251-r300-r2000	frozen5LayerAdaptiveK3	layers=5 layerSuppress=20 layerTopK=3 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	46/50	367.94	0.183878	previous frozen adaptive policy
+r251-r300-r2000	frozen5LayerAdaptiveK5	layers=5 layerSuppress=20 layerTopK=5 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	35/50	368.44	0.184128	known negative K5 check
+r251-r300-r2000	denseP8000Adaptive	singleLayer=p8000w8000 finalSuppress=20 finalTopK=10 baseR=20 expandTop=4 expandR=60	34/50	350.96	0.175392	same adaptive reveal on dense baseline centers
+r251-r300-r2000	frozen5LayerMassR100	layers=5 layerSuppress=20 layerTopK=3 voteR=20 expandPriority=massR100 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	46/50	364.12	0.181969	shape-priority same hit count, slightly lower cost
+r251-r300-r2000	frozen5LayerTiered	layers=5 layerSuppress=20 layerTopK=3 voteR=20 tier=top1R100_top5R60 finalSuppress=100 finalTopK=10 topR=100 midTop=5 midR=60 baseR=20	47/50	442.12	0.22095	predeclared confidence tier: top1 R100, top2-5 R60
+r251-r300-r2000	gapDenseReserve1	layers=5 layerSuppress=20 layerTopK=3 voteR=20 fallbackScore=p8000w8000 primarySuppress=100 primaryTopK=10 baseR=20 expandTop=4 expandR=60 fallbackSuppress=100 fallbackTopK=1 fallbackR=100	47/50	453.24	0.226507	second-stage reserve, same hit count as tier but higher cost
+r251-r300-r2000	frozen5LayerAdaptiveK3Wide	layers=5 layerSuppress=20 layerTopK=3 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=5 expandR=100	48/50	578.42	0.289065	expensive wide reveal comparison
+r301-r350-r2000	denseNMS	suppress=20 topK=10 hitR=20	24/50	206.26	0.103078	uniform strict baseline
+r301-r350-r2000	denseNMS	suppress=20 topK=10 hitR=100	40/50	812.04	0.405817	uniform wide baseline
+r301-r350-r2000	frozen5LayerAdaptiveK3	layers=5 layerSuppress=20 layerTopK=3 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	42/50	368.62	0.184218	previous frozen adaptive policy
+r301-r350-r2000	frozen5LayerAdaptiveK5	layers=5 layerSuppress=20 layerTopK=5 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	37/50	368.42	0.184118	known negative K5 check
+r301-r350-r2000	denseP8000Adaptive	singleLayer=p8000w8000 finalSuppress=20 finalTopK=10 baseR=20 expandTop=4 expandR=60	26/50	343.04	0.171434	same adaptive reveal on dense baseline centers
+r301-r350-r2000	frozen5LayerAdaptiveK3Wide	layers=5 layerSuppress=20 layerTopK=3 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=5 expandR=100	45/50	579.52	0.289615	expensive wide reveal comparison
+r301-r350-r2000	frozen5LayerMassR100	layers=5 layerSuppress=20 layerTopK=3 voteR=20 expandPriority=massR100 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	42/50	364.54	0.182179	shape-priority same hit count/cost diagnostic
+r301-r350-r2000	frozen5LayerTiered	layers=5 layerSuppress=20 layerTopK=3 voteR=20 tier=top1R100_top5R60 finalSuppress=100 finalTopK=10 topR=100 midTop=5 midR=60 baseR=20	42/50	443.62	0.221699	confidence tier: top1 R100, top2-5 R60
+r301-r350-r2000	gapDenseReserve1	layers=5 layerSuppress=20 layerTopK=3 voteR=20 fallbackScore=p8000w8000 primarySuppress=100 primaryTopK=10 baseR=20 expandTop=4 expandR=60 fallbackSuppress=100 fallbackTopK=1 fallbackR=100	42/50	453.6	0.226687	second-stage reserve top1
+r301-r350-r2000	gapDenseReserve2	layers=5 layerSuppress=20 layerTopK=3 voteR=20 fallbackScore=p8000w8000 primarySuppress=100 primaryTopK=10 baseR=20 expandTop=4 expandR=60 fallbackSuppress=100 fallbackTopK=2 fallbackR=100	43/50	539.56	0.269645	second-stage reserve top2
+r351-r400-r2000	denseNMS	suppress=20 topK=10 hitR=20	25/50	206.8	0.103348	uniform strict baseline
+r351-r400-r2000	denseNMS	suppress=20 topK=10 hitR=100	35/50	795.92	0.397761	uniform wide baseline
+r351-r400-r2000	frozen5LayerAdaptiveK3	layers=5 layerSuppress=20 layerTopK=3 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	44/50	368.66	0.184238	previous frozen adaptive policy
+r351-r400-r2000	frozen5LayerAdaptiveK5	layers=5 layerSuppress=20 layerTopK=5 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	34/50	368.88	0.184348	known negative K5 check
+r351-r400-r2000	denseP8000Adaptive	singleLayer=p8000w8000 finalSuppress=20 finalTopK=10 baseR=20 expandTop=4 expandR=60	25/50	344.46	0.172144	same adaptive reveal on dense baseline centers
+r351-r400-r2000	frozen5LayerAdaptiveK3Wide	layers=5 layerSuppress=20 layerTopK=3 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=5 expandR=100	47/50	574.8	0.287256	expensive wide reveal comparison
+r351-r400-r2000	frozen5LayerMassR100	layers=5 layerSuppress=20 layerTopK=3 voteR=20 expandPriority=massR100 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	46/50	365.48	0.182649	shape-priority same hit count/cost diagnostic
+r351-r400-r2000	frozen5LayerTiered	layers=5 layerSuppress=20 layerTopK=3 voteR=20 tier=top1R100_top5R60 finalSuppress=100 finalTopK=10 topR=100 midTop=5 midR=60 baseR=20	46/50	441.36	0.22057	confidence tier: top1 R100, top2-5 R60
+r351-r400-r2000	gapDenseReserve1	layers=5 layerSuppress=20 layerTopK=3 voteR=20 fallbackScore=p8000w8000 primarySuppress=100 primaryTopK=10 baseR=20 expandTop=4 expandR=60 fallbackSuppress=100 fallbackTopK=1 fallbackR=100	44/50	449.74	0.224758	second-stage reserve top1
+r351-r400-r2000	gapDenseReserve2	layers=5 layerSuppress=20 layerTopK=3 voteR=20 fallbackScore=p8000w8000 primarySuppress=100 primaryTopK=10 baseR=20 expandTop=4 expandR=60 fallbackSuppress=100 fallbackTopK=2 fallbackR=100	44/50	533.18	0.266457	second-stage reserve top2
+r401-r450-r2000	denseNMS	suppress=20 topK=10 hitR=20	24/50	207.5	0.103698	uniform strict baseline
+r401-r450-r2000	denseNMS	suppress=20 topK=10 hitR=100	33/50	811.52	0.405557	uniform wide baseline
+r401-r450-r2000	frozen5LayerAdaptiveK3	layers=5 layerSuppress=20 layerTopK=3 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	46/50	368.66	0.184238	previous frozen adaptive policy
+r401-r450-r2000	frozen5LayerAdaptiveK5	layers=5 layerSuppress=20 layerTopK=5 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	39/50	368.24	0.184028	known negative K5 check
+r401-r450-r2000	denseP8000Adaptive	singleLayer=p8000w8000 finalSuppress=20 finalTopK=10 baseR=20 expandTop=4 expandR=60	26/50	350.74	0.175282	same adaptive reveal on dense baseline centers
+r401-r450-r2000	frozen5LayerAdaptiveK3Wide	layers=5 layerSuppress=20 layerTopK=3 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=5 expandR=100	49/50	577.4	0.288556	expensive wide reveal comparison
+r401-r450-r2000	frozen5LayerMassR100	layers=5 layerSuppress=20 layerTopK=3 voteR=20 expandPriority=massR100 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	48/50	364.38	0.182099	shape-priority same hit count/cost diagnostic
+r401-r450-r2000	frozen5LayerTiered	layers=5 layerSuppress=20 layerTopK=3 voteR=20 tier=top1R100_top5R60 finalSuppress=100 finalTopK=10 topR=100 midTop=5 midR=60 baseR=20	48/50	440.96	0.22037	confidence tier: top1 R100, top2-5 R60
+r401-r450-r2000	gapDenseReserve1	layers=5 layerSuppress=20 layerTopK=3 voteR=20 fallbackScore=p8000w8000 primarySuppress=100 primaryTopK=10 baseR=20 expandTop=4 expandR=60 fallbackSuppress=100 fallbackTopK=1 fallbackR=100	46/50	455.4	0.227586	second-stage reserve top1
+r401-r450-r2000	gapDenseReserve2	layers=5 layerSuppress=20 layerTopK=3 voteR=20 fallbackScore=p8000w8000 primarySuppress=100 primaryTopK=10 baseR=20 expandTop=4 expandR=60 fallbackSuppress=100 fallbackTopK=2 fallbackR=100	47/50	540.68	0.270205	second-stage reserve top2
+r451-r500-r2000	denseNMS	suppress=20 topK=10 hitR=20	31/50	206.82	0.103358	uniform strict baseline
+r451-r500-r2000	denseNMS	suppress=20 topK=10 hitR=100	37/50	816.88	0.408236	uniform wide baseline
+r451-r500-r2000	frozen5LayerAdaptiveK3	layers=5 layerSuppress=20 layerTopK=3 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	48/50	368.32	0.184068	previous frozen adaptive policy
+r451-r500-r2000	frozen5LayerAdaptiveK5	layers=5 layerSuppress=20 layerTopK=5 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	42/50	367.34	0.183578	known negative K5 check
+r451-r500-r2000	denseP8000Adaptive	singleLayer=p8000w8000 finalSuppress=20 finalTopK=10 baseR=20 expandTop=4 expandR=60	33/50	351.8	0.175812	same adaptive reveal on dense baseline centers
+r451-r500-r2000	frozen5LayerAdaptiveK3Wide	layers=5 layerSuppress=20 layerTopK=3 voteR=20 finalSuppress=100 finalTopK=10 baseR=20 expandTop=5 expandR=100	49/50	577.56	0.288636	expensive wide reveal comparison
+r451-r500-r2000	frozen5LayerMassR100	layers=5 layerSuppress=20 layerTopK=3 voteR=20 expandPriority=massR100 finalSuppress=100 finalTopK=10 baseR=20 expandTop=4 expandR=60	47/50	365.2	0.182509	frozen candidate validation: MassR100 priority
+r451-r500-r2000	frozen5LayerTiered	layers=5 layerSuppress=20 layerTopK=3 voteR=20 tier=top1R100_top5R60 finalSuppress=100 finalTopK=10 topR=100 midTop=5 midR=60 baseR=20	48/50	442.04	0.22091	frozen candidate validation: top1 R100, top2-5 R60
+r451-r500-r2000	gapDenseReserve1	layers=5 layerSuppress=20 layerTopK=3 voteR=20 fallbackScore=p8000w8000 primarySuppress=100 primaryTopK=10 baseR=20 expandTop=4 expandR=60 fallbackSuppress=100 fallbackTopK=1 fallbackR=100	48/50	452.12	0.225947	second-stage reserve top1
+r451-r500-r2000	gapDenseReserve2	layers=5 layerSuppress=20 layerTopK=3 voteR=20 fallbackScore=p8000w8000 primarySuppress=100 primaryTopK=10 baseR=20 expandTop=4 expandR=60 fallbackSuppress=100 fallbackTopK=2 fallbackR=100	48/50	539.88	0.269805	second-stage reserve top2

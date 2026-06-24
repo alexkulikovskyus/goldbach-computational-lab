@@ -1,0 +1,37 @@
+metric	value
+blocks	1002
+even_values	1002000000000
+rows_per_block	1000000000
+min_offset	2
+max_offset	2004000000000
+start_N	2*10^19+2
+end_N	2*10^19+2004000000000
+qline_rows	1001999948917
+fallback_rows	51083
+fallback_verified	51083
+unresolved	0
+qline_coverage_pct	99.999994902
+avg_fallback_per_billion	50.981038
+min_fallback_rows	4
+min_fallback_block	646
+max_fallback_rows	207
+max_fallback_block	669
+qline_qtests	3388627
+accepted_qline_sum	1127333
+fallback_qtests	167760
+no_skip_qtests	3556387
+sum_block_seconds_not_wall_clock	51836.161
+min_block_seconds	20.425
+min_block_seconds_block	66
+max_block_seconds	76.370
+max_block_seconds_block	924
+aLimit	50000
+pLimit	250000
+qFilterLimit	250000
+smallLimit	250000
+gmp_primality_reps	25
+block_parallel_jobs	18
+inner_workers	1
+method	q-line coverage plus direct fallback
+primality	GMP mpz_probab_prime_p, 25 reps
+snapshot_note	completed finite e19-forward campaign snapshot; probable-prime computational coverage, not formal certification
